@@ -1,0 +1,3 @@
+-r skills/docx-format/requirements.txt
+pytest>=8.4,<9
+Pillow>=10,<13

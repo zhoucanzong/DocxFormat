@@ -1,0 +1,6 @@
+interface:
+  display_name: "DocxFormat"
+  short_description: "模板与文字驱动的 Word 排版，保留特殊对象、原生修订与批量审阅确认"
+  default_prompt: "使用 $docx-format 按模板或文字要求规范文档，保留原文及特殊对象，先确认方案并输出带修订的审阅版。"
+policy:
+  allow_implicit_invocation: true

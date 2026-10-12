@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "name": "党政机关公文基础版式候选",
+  "description": "GB/T 9704-2012 的基础几何与正文层级候选，不是全标准合规证书。版头、版记、页码、行字数及特定格式需结合原文和模板确认。",
+  "sources": [
+    {
+      "type": "standard",
+      "standard": "GB/T 9704-2012",
+      "clauses": [
+        "5.1",
+        "5.2.1",
+        "7.3.3"
+      ],
+      "status_checked": "2026-10-13"
+    }
+  ],
+  "roles": {
+    "body": {
+      "paragraph": {
+        "first_line_chars": 2,
+        "alignment": "both"
+      },
+      "run": {
+        "font_east_asia": "仿宋",
+        "size_pt": 16
+      }
+    },
+    "heading1": {
+      "run": {
+        "font_east_asia": "黑体",
+        "size_pt": 16
+      }
+    },
+    "heading2": {
+      "run": {
+        "font_east_asia": "楷体",
+        "size_pt": 16
+      }
+    },
+    "heading3": {
+      "run": {
+        "font_east_asia": "仿宋",
+        "size_pt": 16
+      }
+    },
+    "heading4": {
+      "run": {
+        "font_east_asia": "仿宋",
+        "size_pt": 16
+      }
+    }
+  },
+  "section_rules": [
+    {
+      "index": 0,
+      "properties": {
+        "width_mm": 210,
+        "height_mm": 297,
+        "top_mm": 37,
+        "bottom_mm": 35,
+        "left_mm": 28,
+        "right_mm": 26,
+        "orientation": "portrait"
+      },
+      "reason": "需确认适用于此节；横向表格或单位特定模板不能直接套用"
+    }
+  ],
+  "questions": [
+    {
+      "id": "official.scope",
+      "question": "本次是一般党政机关公文格式，还是单位模板/信函/命令/纪要等特定版式？"
+    },
+    {
+      "id": "official.fonts",
+      "question": "目标编辑环境是否具备要求的字体？如需替代，请明确选择并记录偏离。"
+    },
+    {
+      "id": "official.geometry",
+      "question": "请确认第一个节采用候选页面设置，其余节按各自用途处理。"
+    }
+  ]
+}

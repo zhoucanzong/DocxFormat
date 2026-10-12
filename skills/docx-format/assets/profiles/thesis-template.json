@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "name": "论文规则采集起点",
+  "description": "不预设所有学校统一字体或页边距。Agent 根据学校模板与文字要求填写角色和分节规则后形成可执行计划。",
+  "sources": [],
+  "roles": {},
+  "metadata": {"regions": ["cover", "declaration", "abstract-cn", "abstract-en", "toc", "body", "references", "acknowledgements", "appendices"]},
+  "questions": [
+    {"id": "thesis.authority", "question": "以哪所学校/期刊、哪个版本的模板和要求为依据？"},
+    {"id": "thesis.pagination", "question": "前置部分、正文、附录的分节与页码规则是否已从模板明确？"},
+    {"id": "thesis.elements", "question": "需要仅保留还是重建目录、编号、题注和交叉引用？请明确范围。"}
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "name": "通用中文报告",
+  "description": "项目示例方案；不是国标或学校统一要求。确认后按角色应用，未列属性保持原样。",
+  "sources": [{"type": "project-example", "version": "1"}],
+  "roles": {
+    "body": {
+      "paragraph": {"alignment": "both", "line": {"mode": "multiple", "value": 1.5}, "first_line_chars": 2, "after_pt": 6},
+      "run": {"font_east_asia": "宋体", "font_latin": "Times New Roman", "size_pt": 12},
+      "preserve_inline_emphasis": true
+    },
+    "heading1": {
+      "paragraph": {"before_pt": 18, "after_pt": 10, "keep_with_next": true, "first_line_chars": 0},
+      "run": {"font_east_asia": "黑体", "font_latin": "Arial", "size_pt": 16}
+    },
+    "heading2": {
+      "paragraph": {"before_pt": 12, "after_pt": 6, "keep_with_next": true, "first_line_chars": 0},
+      "run": {"font_east_asia": "黑体", "font_latin": "Arial", "size_pt": 14}
+    },
+    "heading3": {
+      "paragraph": {"before_pt": 8, "after_pt": 4, "keep_with_next": true, "first_line_chars": 0},
+      "run": {"font_east_asia": "黑体", "font_latin": "Arial", "size_pt": 12}
+    },
+    "table": {"paragraph": {"before_pt": 0, "after_pt": 0}, "run": {"size_pt": 10.5}},
+    "caption": {"paragraph": {"alignment": "center", "first_line_chars": 0}, "run": {"size_pt": 10.5}}
+  }
+}

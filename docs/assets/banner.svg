@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">DocxFormat</title>
+  <desc id="desc">从文档与模板出发，经方案确认、原生修订和审阅，输出可编辑 Word。</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1728"/><stop offset="1" stop-color="#153a42"/></linearGradient>
+  </defs>
+  <rect width="1200" height="400" rx="22" fill="url(#bg)"/>
+  <g font-family="Inter, Arial, 'PingFang SC', sans-serif">
+    <rect x="56" y="48" width="125" height="29" rx="14" fill="#27424d"/>
+    <text x="118" y="68" text-anchor="middle" font-size="12" fill="#9edbd3" letter-spacing="2">AGENT SKILL</text>
+    <text x="54" y="150" fill="#fff" font-size="60" font-weight="700">DocxFormat</text>
+    <text x="57" y="194" fill="#cfdfeb" font-size="22">DOCX / Markdown 文档规范化</text>
+    <text x="57" y="232" fill="#a6bdc9" font-size="16">模板与文字规则 · 特殊对象保留 · Word 原生修订</text>
+    <g font-size="14" fill="#c5e5de">
+      <rect x="57" y="288" width="95" height="34" rx="7" fill="#203b49"/>
+      <text x="104" y="310" text-anchor="middle">方案确认</text>
+      <path d="M163 305h29m-6-5 6 5-6 5" fill="none" stroke="#71c9b7" stroke-width="2"/>
+      <rect x="206" y="288" width="95" height="34" rx="7" fill="#203b49"/>
+      <text x="253" y="310" text-anchor="middle">修订审阅</text>
+      <path d="M312 305h29m-6-5 6 5-6 5" fill="none" stroke="#71c9b7" stroke-width="2"/>
+      <rect x="355" y="288" width="95" height="34" rx="7" fill="#24594f"/>
+      <text x="402" y="310" text-anchor="middle">确认交付</text>
+    </g>
+    <g transform="translate(735 47)">
+      <rect x="0" y="13" width="244" height="290" rx="10" fill="#6ab7ab" opacity=".15" transform="rotate(-8 120 150)"/>
+      <rect width="250" height="305" rx="10" fill="#f8fafc"/>
+      <rect x="25" y="27" width="110" height="9" rx="3" fill="#182b42"/>
+      <rect x="25" y="49" width="160" height="5" rx="2" fill="#a8b8c9"/>
+      <rect x="25" y="87" width="200" height="5" rx="2" fill="#b7c5d1"/>
+      <rect x="25" y="104" width="155" height="5" rx="2" fill="#b7c5d1"/>
+      <rect x="25" y="121" width="183" height="5" rx="2" fill="#b7c5d1"/>
+      <path d="M15 83v48" stroke="#078b73" stroke-width="3"/>
+      <rect x="142" y="98" width="79" height="17" rx="3" fill="#d1eee5"/>
+      <text x="182" y="110" text-anchor="middle" font-size="10" fill="#09644f">格式修订</text>
+      <path d="M25 162h200m-200 27h200m-200 67h200" stroke="#263e52" stroke-width="2"/>
+      <path d="M25 189h200" stroke="#263e52" stroke-width="1"/>
+      <g fill="#bcc8d2"><rect x="35" y="172" width="60" height="5"/><rect x="157" y="172" width="40" height="5"/><rect x="35" y="207" width="54" height="5"/><rect x="160" y="207" width="35" height="5"/><rect x="35" y="234" width="64" height="5"/><rect x="160" y="234" width="35" height="5"/></g>
+      <text x="125" y="285" text-anchor="middle" font-size="10" fill="#8a9baa">可编辑 DOCX</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+# Local reference material and research artifacts are not part of the product.
+/resources/
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.DS_Store
+/out/
+/dist/
