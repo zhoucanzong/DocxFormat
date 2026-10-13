@@ -25,6 +25,23 @@
 表格用三线表。目录生成后告诉我是否已经更新页码。
 ```
 
+## 红头案例
+
+下面四组均由**可编辑 DOCX 实际渲染**，经过 Skill 的模板组件迁入流程。机关名称与正文为原创虚构内容。
+
+![四种红头：常规、长名称缩放、联合发文、空心描边](docs/assets/letterheads/gallery.png)
+
+| 案例 | 展示的原生元素 | 完整页面 |
+| --- | --- | --- |
+| 常规红头 | 居中红色机关标志、发文字号、单红线 | [查看](docs/assets/letterheads/01-classic.webp) |
+| 长名称与字距 | 78% 横向缩放、1.2 磅字符间距 | [查看](docs/assets/letterheads/02-condensed.webp) |
+| 联合发文组合 | 双机关名称、合并单元格布局、“文件”居中、双红线 | [查看](docs/assets/letterheads/03-joint.webp) |
+| 空心描边效果 | 原生空心文字、英文副行、双红线 | [查看](docs/assets/letterheads/04-outline.webp) |
+
+这些是效果保留与迁入案例，**不是 GB/T 9704 合规样板**；空心描边也不代表任意艺术字都可重建。四组已在同一 LibreOffice 环境中检查完整页面，独立参考排版与迁入预览的渲染像素一致；Word／WPS 仍需分别复核。
+
+[案例参数、使用示例与复现方法 →](docs/LETTERHEAD-CASES.md)
+
 ## 工作方式
 
 ```mermaid

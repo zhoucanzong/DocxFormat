@@ -100,3 +100,24 @@ The public document and derived copies are ignored QA artifacts, not redistribut
   theme colors and styles are isolated from the destination.
 - Final archive, staged cleanliness, commit and remote hash are verified at
   publication. Experimental DOCX/PDF/PNG and downloaded material stay untracked.
+
+## 2026-10-13 — published letterhead gallery
+
+- Four original, fictional examples exercise the actual component importer:
+  centered issuer and single rule; 78% character scale with 1.2 pt spacing;
+  joint issuers in a vertically merged layout table; native outlined text with
+  an English subtitle and double rule.
+- Each preview and its independently assembled reference rendered to one page
+  in the same bundled LibreOffice/Fontconfig environment. All four full-page
+  preview/reference pairs were pixel-identical, and all four final preview
+  pages were visually inspected. The default Title style's unwanted blue
+  border was removed before the final render.
+- These examples use editable text/table/border properties, not rasterized
+  redhead lettering. They do not demonstrate arbitrary WordArt reconstruction,
+  floating textbox groups, GB/T 9704 compliance or Word/WPS visual parity.
+- The source hash stayed unchanged, template placeholder prose was excluded,
+  and each preview passed package verification. Receipts remain awaiting
+  component approval; the gallery generator never approves user work.
+- The existing 29 regression tests passed. Curated gallery images are explicit
+  documentation assets; generated DOCX/PDF/receipts and render intermediates
+  remain under ignored `out/`. See [reproduction](LETTERHEAD-CASES.md).
