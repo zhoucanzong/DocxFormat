@@ -121,3 +121,22 @@ The public document and derived copies are ignored QA artifacts, not redistribut
 - The existing 29 regression tests passed. Curated gallery images are explicit
   documentation assets; generated DOCX/PDF/receipts and render intermediates
   remain under ignored `out/`. See [reproduction](LETTERHEAD-CASES.md).
+
+## 2026-10-13 — character stretch comparison
+
+- One original page compares the same red text at 36 pt/100%, 36 pt/150%,
+  36 pt/70%, 54 pt/67%, and 36 pt/100% with 6 pt character spacing. All rows
+  retain the same image scale and left alignment for comparison.
+- `create_letterhead_stretch.py` uses scoped native formatting revisions.
+  The review passed package/content and all five recorded operation checks;
+  a QA-only rejection projection restored the original main-document XML.
+  Source bytes stayed unchanged. The review's revisions remain pending.
+- The QA acceptance projection and independently authored reference each
+  rendered to one page; their pixels were identical in the same bundled
+  LibreOffice environment. The complete final page was visually inspected:
+  no clipped glyphs, wrapped redhead lines or overlapping labels were observed.
+- The tall appearance combines larger font size with horizontal compression;
+  it is not a separate vertical-scale property or arbitrary WordArt transform.
+- The existing 29 regression tests passed. Only curated display images and
+  reproducible source/documentation are published; generated DOCX/receipts/PDF
+  remain ignored. Word/WPS visual parity is not asserted.

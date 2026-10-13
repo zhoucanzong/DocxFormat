@@ -29,11 +29,24 @@ def red_crop(page):
                       min(page.width, right+28), min(page.height, bottom+28)))
 
 
+def checked_page(folder, preview="preview"):
+    pages = sorted((folder / f"render-{preview}").glob("page-*.png"))
+    refs = sorted((folder / "render-reference").glob("page-*.png"))
+    if len(pages) != 1 or len(refs) != 1:
+        raise ValueError(f"{folder.name}: expected one full page in each render")
+    with Image.open(pages[0]) as img, Image.open(refs[0]) as ref:
+        page, reference = img.convert("RGB"), ref.convert("RGB")
+    if page.size != reference.size or ImageChops.difference(page, reference).getbbox():
+        raise ValueError(f"{folder.name}: reference/preview differ; investigate before publishing")
+    return page
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path)
     parser.add_argument("--font", type=Path, required=True)
     parser.add_argument("--out", type=Path, default=Path("docs/assets/letterheads"))
+    parser.add_argument("--stretch-source", type=Path, help="Optional rendered tracked stretch comparison")
     args = parser.parse_args()
     title_font = ImageFont.truetype(str(args.font), 29)
     note_font = ImageFont.truetype(str(args.font), 20)
@@ -42,14 +55,7 @@ def main():
     args.out.mkdir(parents=True, exist_ok=True)
     for i, (slug, title, note) in enumerate(CASES):
         folder = args.source / slug
-        pages = sorted((folder / "render-preview").glob("page-*.png"))
-        refs = sorted((folder / "render-reference").glob("page-*.png"))
-        if len(pages) != 1 or len(refs) != 1:
-            raise ValueError(f"{slug}: expected one full page in each render")
-        with Image.open(pages[0]) as img, Image.open(refs[0]) as ref:
-            page, reference = img.convert("RGB"), ref.convert("RGB")
-        if page.size != reference.size or ImageChops.difference(page, reference).getbbox():
-            raise ValueError(f"{slug}: reference/preview differ; investigate before publishing")
+        page = checked_page(folder)
         page.save(args.out / f"{slug}.webp", lossless=True)
         crop = red_crop(page)
         crop.thumbnail((610, 290), Image.Resampling.LANCZOS)
@@ -60,6 +66,18 @@ def main():
         draw.text((x+24, y+374), note, font=note_font, fill="#52616B")
         print(f"{slug}: one page; reference/preview pixels identical")
     gallery.save(args.out / "gallery.png", optimize=True)
+    if args.stretch_source:
+        page = checked_page(args.stretch_source, preview="effect")
+        page.save(args.out / "05-stretch.webp", lossless=True)
+        # Trim only blank page margins. All comparison rows retain the same
+        # pixel scale: do not independently fit each line to a thumbnail width.
+        box = ImageChops.difference(page, Image.new("RGB", page.size, "white")).getbbox()
+        if box is None:
+            raise ValueError("Empty stretch comparison")
+        left, top, right, bottom = box
+        page.crop((max(0, left-28), max(0, top-28), min(page.width, right+28),
+                   min(page.height, bottom+28))).save(args.out / "stretch-comparison.png", optimize=True)
+        print("stretch: one page; reference/effect pixels identical")
 
 
 if __name__ == "__main__":

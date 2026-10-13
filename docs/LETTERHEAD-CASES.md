@@ -64,3 +64,32 @@ python tools/export_letterhead_gallery.py out/letterhead-showcase \
 导出脚本要求每例恰好一页，且参考与预览像素一致；不一致就停止，不会自动发布图集。该比较仅检查**同一渲染环境中的组件迁入效果**，不能证明排版规则正确、指定字体实际命中或跨引擎一致。新环境需要自己检查全部页面，不应仅以导出成功代替视觉审阅。
 
 本次展示使用 bundled LibreOffice 与配置了系统中文字体目录的 Fontconfig；四组完整页面均已逐页视觉检查。原始 DOCX、PDF、记录和中间 PNG 保存在被忽略的 `out/` 中。仓库只纳入原创脚本、说明和精选的展示图片。
+
+## 拉伸对照的复现
+
+另有一页同文字对照，使用 Skill 的原生格式修订流程，独立于前面四组组件迁入案例。
+
+| 对照 | 字号 | 横向比例 | 字符间距 | 观察重点 |
+| --- | --- | --- | --- | --- |
+| 原比例 | 36 磅 | 100% | 0 磅 | 基准 |
+| 横向拉宽 | 36 磅 | 150% | 0 磅 | 字形变宽，高度保持 |
+| 横向压缩 | 36 磅 | 70% | 0 磅 | 字形变窄，高度保持 |
+| 瘦长效果 | 54 磅 | 67% | 0 磅 | 增大字号后压缩宽度，字宽接近基准、高度增加 |
+| 仅加大字距 | 36 磅 | 100% | 6 磅 | 字形比例不变，间隔增大 |
+
+所有行使用相同文字、字体和左对齐位置。图集不对各行分别缩放，因此可以直接比较实际宽高。瘦长效果不是独立的纵向缩放，也不等于任意艺术字变形；增加字号时同时预留行高，避免字形裁切。
+
+```bash
+python tools/create_letterhead_stretch.py --out out/letterhead-stretch
+for name in effect reference; do
+  python "$DOCX_RENDERER" "out/letterhead-stretch/$name.docx" \
+    --output_dir "out/letterhead-stretch/render-$name"
+done
+python tools/export_letterhead_gallery.py out/letterhead-showcase \
+  --font /path/to/chinese-font.ttf --stretch-source out/letterhead-stretch \
+  --out out/letterhead-gallery
+```
+
+脚本先生成原比例基线，再以精确段落范围调整 `size_pt`、`scale_percent` 与 `character_spacing_pt`。`review.docx` 保留修订，`effect.docx` 只是 `qa_projection=True` 的接受效果副本，`rejected.docx` 用于检查拒绝后是否恢复原始正文 XML。生成脚本记录的方案批准仅适用于原创合成演示，不能充当真实用户文档的批准。
+
+`reference.docx` 直接按预期参数独立生成。导出时要求它与接受效果副本均为单页且渲染像素一致；仍需查看完整页面。本次检查覆盖字形拉宽、压缩、瘦长与字距的区别，未验证 Word／WPS 跨引擎一致性。
